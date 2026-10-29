@@ -47,3 +47,5 @@ window.SHOP_PRODUCTS = [
     category: "perfume",
     price: 4500,
     image: 
+  },
+  {:
