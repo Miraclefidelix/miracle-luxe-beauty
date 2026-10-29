@@ -46,6 +46,6 @@ window.SHOP_PRODUCTS = [
     name: "24k",
     category: "perfume",
     price: 4500,
-    image: "",
+    image: "file_000000001c748243bc07c0ee179fc435.png",
   }
 ];
