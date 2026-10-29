@@ -42,10 +42,10 @@ window.SHOP_PRODUCTS = [
     image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=800&q=85"
   },
   {
-    id: 5,
+        id: 5,
     name: "24k",
     category: "perfume",
     price: 4500,
-    image: 
-  },
-  {:
+    image: "",
+  }
+];
