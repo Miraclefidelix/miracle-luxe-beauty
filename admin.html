@@ -3,51 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login | Miracle Luxe Beauty</title>
-
+    <title>Admin Dashboard | Miracle Luxe Beauty</title>
     <link rel="stylesheet" href="admin.css">
 </head>
 
 <body>
 
-    <main class="login-container">
+    <main class="login-container" id="login-section">
         <div class="login-box">
-
             <h1>Miracle Luxe Beauty</h1>
             <p>Administrator Login</p>
 
             <form id="login-form">
-
                 <label for="email">Email Address</label>
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="Enter your admin email"
-                    required
-                >
+                <input type="email" id="email" required>
 
                 <label for="password">Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    placeholder="Enter your password"
-                    required
-                >
+                <input type="password" id="password" required>
 
-                <button type="submit" id="login-button">
-                    Sign In
-                </button>
-
+                <button type="submit" id="login-button">Sign In</button>
                 <p id="login-message"></p>
-
             </form>
-
         </div>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="supabase-config.js"></script>
-    <script src="admin.js"></script>
+    <main id="dashboard-section" hidden>
 
-</body>
-                                                                         </html>
+        <header class="dashboard-header">
+            <div>
+                <h1>Miracle Luxe Beauty</h1>
+                <p>Admin Dashboard</p>
+            </div>
+            <button id="logout-button">Log Out</button>
+        </header>
+
+        <section class="dashboard-content">
+
+            <h2>Dashboard Overview</h2>
+            <p>Manage your shop products and customer orders.</p>
+
+            <section class="admin-card">
+                <h2>Add New Product</h2>
+
+                <form id="product-form">
+
+                    <label for="product-name">Product Name</label>
+                    <input type="text" id="product-name" required>
+
+                    <label for="product-category">Category</label>
+                    <select id="product-category" required>
+                        <option value="Beauty">Beauty</option>
+                        <option value="Perfume">Perfume</option>
+                    </select>
+
+                    <label for="product-price">Price (₦)</label>
+                    <input type="number" id="product-price" min="0" step="0.01" required>
+
+                    <label for="product-description">Description</label>
+                    <textarea id="product-description" rows
