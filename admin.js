@@ -5,43 +5,40 @@ const loginButton = document.getElementById("login-button");
 loginForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
-        const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
 
-                loginButton.disabled = true;
-                    loginButton.textContent = "Signing in...";
-                        loginMessage.textContent = "Checking your details...";
-                            loginMessage.style.color = "#786b7c";
+    loginButton.disabled = true;
+    loginButton.textContent = "Signing in...";
+    loginMessage.textContent = "Checking your details...";
 
-                                try {
-                                        const { data, error } =
-                                                    await supabaseClient.auth.signInWithPassword({
-                                                                    email: email,
-                                                                                    password: password
-                                                                                                });
+    try {
+        const { error } =
+            await supabaseClient.auth.signInWithPassword({
+                email,
+                password
+            });
 
-                                                                                                        if (error) throw error;
+        if (error) throw error;
 
-                                                                                                                const { data: isAdmin, error: adminError } =
-                                                                                                                            await supabaseClient.rpc("is_admin");
+        const { data: isAdmin, error: adminError } =
+            await supabaseClient.rpc("is_admin");
 
-                                                                                                                                    if (adminError) throw adminError;
+        if (adminError) throw adminError;
 
-                                                                                                                                            if (!isAdmin) {
-                                                                                                                                                        await supabaseClient.auth.signOut();
-                                                                                                                                                                    throw new Error("You are not authorised as an administrator.");
-                                                                                                                                                                            }
+        if (!isAdmin) {
+            await supabaseClient.auth.signOut();
+            throw new Error("You are not authorised as an administrator.");
+        }
 
-                                                                                                                                                                                    loginMessage.textContent =
-                                                                                                                                                                                                "Login successful! Admin access verified.";
+        loginMessage.textContent = "Admin login successful!";
+        loginMessage.style.color = "green";
 
-                                                                                                                                                                                                        loginMessage.style.color = "green";
+    } catch (error) {
+        loginMessage.textContent = error.message;
+        loginMessage.style.color = "red";
+    }
 
-                                                                                                                                                                                                            } catch (error) {
-                                                                                                                                                                                                                    loginMessage.textContent = error.message;
-                                                                                                                                                                                                                            loginMessage.style.color = "red";
-                                                                                                                                                                                                                                }
-
-                                                                                                                                                                                                                                    loginButton.disabled = false;
-                                                                                                                                                                                                                                        loginButton.textContent = "Sign In";
-                                                                                                                                                                                                                                        });
+    loginButton.disabled = false;
+    loginButton.textContent = "Sign In";
+});
