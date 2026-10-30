@@ -41,11 +41,4 @@ window.SHOP_PRODUCTS = [
     description: "A fragrance choice for when you want to feel extra special.",
     image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=800&q=85"
   },
-  {
-        id: 5,
-    name: "24k",
-    category: "perfume",
-    price: 4500,
-    image: "file_000000001c748243bc07c0ee179fc435.png",
-  }
 ];
