@@ -5,80 +5,164 @@
 }
 
 body {
-    font-family: 'DM Sans', Arial, sans-serif;
-    background: linear-gradient(135deg, #160d20, #44234d);
+    font-family: Arial, sans-serif;
+    background: #f8f1f7;
+    color: #211528;
+    min-height: 100vh;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* LOGIN PAGE */
+
+.login-container {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
-}
-
-.login-container {
-    width: 100%;
-    max-width: 420px;
+    background: linear-gradient(135deg, #160d20, #44234d);
 }
 
 .login-box {
+    width: 100%;
+    max-width: 420px;
     background: #fffafc;
     padding: 40px 30px;
     border-radius: 16px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
 }
 
 .login-box h1 {
     color: #44234d;
-    font-family: Georgia, serif;
-    font-size: 27px;
     text-align: center;
     margin-bottom: 10px;
 }
 
 .login-box > p {
-    color: #786b7c;
     text-align: center;
-    margin-bottom: 30px;
+    color: #786b7c;
+    margin-bottom: 25px;
 }
+
+/* DASHBOARD HEADER */
+
+.dashboard-header {
+    background: #44234d;
+    color: white;
+    padding: 22px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.dashboard-header p {
+    margin-top: 5px;
+    color: #f3dbe8;
+}
+
+.dashboard-content {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+.dashboard-content > h2 {
+    color: #44234d;
+    margin-bottom: 10px;
+}
+
+.dashboard-content > p {
+    color: #786b7c;
+    margin-bottom: 25px;
+}
+
+/* CARDS */
+
+.admin-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.admin-card h2 {
+    color: #44234d;
+    margin-bottom: 20px;
+}
+
+/* FORMS */
 
 label {
     display: block;
-    color: #211528;
-    font-weight: 600;
-    margin: 18px 0 8px;
+    margin: 17px 0 8px;
+    font-weight: bold;
 }
 
-input {
+input,
+select,
+textarea {
     width: 100%;
-    padding: 14px;
+    padding: 13px;
     border: 1px solid #eadfe8;
     border-radius: 8px;
     font-size: 15px;
-    outline: none;
+    background: white;
 }
 
-input:focus {
-    border-color: #bd7b9f;
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #bd7b9f;
 }
+
+textarea {
+    resize: vertical;
+}
+
+/* BUTTONS */
 
 button {
-    width: 100%;
-    padding: 15px;
-    margin-top: 25px;
     background: #44234d;
     color: white;
     border: none;
+    padding: 13px 20px;
     border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
     cursor: pointer;
+    font-weight: bold;
+    margin-top: 18px;
 }
 
 button:hover {
     background: #60366b;
 }
 
-#login-message {
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+#logout-button {
+    background: #bd7b9f;
+}
+
+/* MESSAGES */
+
+#login-message,
+#product-message {
     margin-top: 15px;
-    text-align: center;
     font-size: 14px;
 }
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+    .dashboard-header {
+        padding: 18px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 20
